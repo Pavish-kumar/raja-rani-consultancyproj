@@ -1,3 +1,4 @@
+// Importing all image and icon assets
 import search_icon from "./search_icon.svg";
 import remove_icon from "./remove_icon.svg";
 import arrow_right_icon_colored from "./arrow_right_icon_colored.svg";
@@ -39,10 +40,12 @@ import whole_wheat_bread_image from "./whole_wheat_bread_image.png";
 import vanilla_muffins_image from "./vanilla_muffins_image.png";
 import quinoa_image from "./quinoa_image.png";
 import cancel from "./cancel.jpg";
-import banner from "./banner.jpg"
-import sweetBun from "./Sweet Bun.webp"
-import logo from './logo.jpg'
-import baker from "./baker.jpg"
+import banner from "./banner.jpg";
+import sweetBun from "./Sweet Bun.webp";
+import logo from './logo.jpg';
+import baker from "./baker.jpg";
+
+// Exporting all assets
 export const assets = {
   search_icon,
   remove_icon,
@@ -77,38 +80,40 @@ export const assets = {
   baker
 };
 
+// Updated categories with engaging tone
 export const categories = [
   {
-    text: "Bakery & Breads",
+    text: "Fresh from the Oven",
     path: "Bakery",
     image: bakery_image,
-    bgColor: "#E0F6FE",
+    bgColor: "#FFF4E6",
   },
 ];
 
+// Updated footer links with friendlier tone
 export const footerLinks = [
   {
-    title: "Quick Links",
+    title: "Explore More",
     links: [
       { text: "Home", url: "#" },
-      { text: "Best Sellers", url: "#" },
-      { text: "Offers & Deals", url: "#" },
-      { text: "Contact Us", url: "#" },
-      { text: "FAQs", url: "#" },
+      { text: "Top Picks", url: "#" },
+      { text: "Special Discounts", url: "#" },
+      { text: "Reach Out", url: "#" },
+      { text: "Got Questions?", url: "#" },
     ],
   },
   {
-    title: "Need help?",
+    title: "We're Here for You",
     links: [
-      { text: "Delivery Information", url: "#" },
-      { text: "Return & Refund Policy", url: "#" },
-      { text: "Payment Methods", url: "#" },
-      { text: "Track your Order", url: "#" },
-      { text: "Contact Us", url: "#" },
+      { text: "How Delivery Works", url: "#" },
+      { text: "Easy Returns", url: "#" },
+      { text: "Payment Options", url: "#" },
+      { text: "Order Status", url: "#" },
+      { text: "Talk to Us", url: "#" },
     ],
   },
   {
-    title: "Follow Us",
+    title: "Stay Connected",
     links: [
       { text: "Instagram", url: "#" },
       { text: "Twitter", url: "#" },
@@ -118,28 +123,143 @@ export const footerLinks = [
   },
 ];
 
+// Updated features with friendlier and modern phrasing
 export const features = [
   {
     icon: delivery_truck_icon,
-    title: "Fastest Delivery",
-    description: "Orders delivered in under 30 minutes.",
+    title: "Fast Delivery",
+    description: "Get your fresh bakes in under 30 minutes!",
+    style: {
+      container: {
+        backgroundColor: "#FFF7E6",
+        borderRadius: "12px",
+        padding: "20px",
+        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)",
+        transition: "all 0.3s ease",
+        transform: "scale(1)",
+      },
+      hover: {
+        backgroundColor: "#FFE9C9",
+        transform: "scale(1.03)",
+      },
+      icon: {
+        width: "40px",
+        height: "40px",
+        marginBottom: "10px",
+      },
+      title: {
+        fontSize: "1.2rem",
+        fontWeight: "bold",
+        marginBottom: "0.5rem",
+      },
+      description: {
+        fontSize: "0.95rem",
+        color: "#333",
+      },
+    },
   },
   {
     icon: leaf_icon,
-    title: "Freshness Guaranteed",
-    description: "Fresh produce straight from the source.",
+    title: "Always Fresh",
+    description: "Baked daily with the finest ingredients.",
+    style: {
+      container: {
+        backgroundColor: "#E6F7F1",
+        borderRadius: "12px",
+        padding: "20px",
+        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)",
+        transition: "all 0.3s ease",
+        transform: "scale(1)",
+      },
+      hover: {
+        backgroundColor: "#CCF1E4",
+        transform: "scale(1.03)",
+      },
+      icon: {
+        width: "40px",
+        height: "40px",
+        marginBottom: "10px",
+      },
+      title: {
+        fontSize: "1.2rem",
+        fontWeight: "bold",
+        marginBottom: "0.5rem",
+      },
+      description: {
+        fontSize: "0.95rem",
+        color: "#333",
+      },
+    },
   },
   {
     icon: coin_icon,
-    title: "Affordable Prices",
-    description: "Quality groceries at unbeatable prices.",
+    title: "Best Value",
+    description: "Delicious treats that don’t break the bank.",
+    style: {
+      container: {
+        backgroundColor: "#F0F5FF",
+        borderRadius: "12px",
+        padding: "20px",
+        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)",
+        transition: "all 0.3s ease",
+        transform: "scale(1)",
+      },
+      hover: {
+        backgroundColor: "#D6E5FF",
+        transform: "scale(1.03)",
+      },
+      icon: {
+        width: "40px",
+        height: "40px",
+        marginBottom: "10px",
+      },
+      title: {
+        fontSize: "1.2rem",
+        fontWeight: "bold",
+        marginBottom: "0.5rem",
+      },
+      description: {
+        fontSize: "0.95rem",
+        color: "#333",
+      },
+    },
   },
   {
     icon: trust_icon,
-    title: "Trusted by Thousands",
-    description: "Loved by 10,000+ happy customers.",
+    title: "Loved Locally",
+    description: "Serving smiles to 10,000+ happy customers.",
+    style: {
+      container: {
+        backgroundColor: "#F9EFFC",
+        borderRadius: "12px",
+        padding: "20px",
+        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)",
+        transition: "all 0.3s ease",
+        transform: "scale(1)",
+      },
+      hover: {
+        backgroundColor: "#ECD9F9",
+        transform: "scale(1.03)",
+      },
+      icon: {
+        width: "40px",
+        height: "40px",
+        marginBottom: "10px",
+      },
+      title: {
+        fontSize: "1.2rem",
+        fontWeight: "bold",
+        marginBottom: "0.5rem",
+      },
+      description: {
+        fontSize: "0.95rem",
+        color: "#333",
+      },
+    },
   },
 ];
+
+
 export const dummyProducts = [
   {
     _id: "gd47g34h",

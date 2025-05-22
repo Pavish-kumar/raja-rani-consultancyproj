@@ -1,24 +1,28 @@
 const NewsLetter = () => {
-    
-    return (
-        <div className="flex flex-col items-center justify-center text-center space-y-2 mt-24 pb-14">
-            <h1 className="md:text-4xl text-2xl font-semibold">Never Miss a Deal!</h1>
-            <p className="md:text-lg text-gray-500/70 pb-8">
-                Subscribe to get the latest offers, new arrivals, and exclusive discounts
-            </p>
-            <form className="flex items-center justify-between max-w-2xl w-full md:h-13 h-12">
-                <input
-                    className="border border-gray-300 rounded-md h-full border-r-0 outline-none w-full rounded-r-none px-3 text-gray-500"
-                    type="text"
-                    placeholder="Enter your email id"
-                    required
-                />
-                <button type="submit" className="md:px-12 px-8 h-full text-white bg-primary hover:bg-primary-dull transition-all cursor-pointer rounded-md rounded-l-none">
-                    Subscribe
-                </button>
-            </form>
-        </div>
-    )
-}
+  return (
+    <div className="flex flex-col items-center justify-center text-center space-y-4 mt-24 pb-14 px-4">
+      <h1 className="text-2xl md:text-4xl font-bold text-gray-800">
+        Stay in the Loop with Fresh Bakes!
+      </h1>
+      <p className="text-sm md:text-lg text-gray-500 max-w-xl">
+        Join our mailing list for exclusive treats, tasty deals, and early access to new delights.
+      </p>
+      <form className="flex flex-col sm:flex-row items-center gap-3 mt-6 w-full max-w-2xl">
+        <input
+          type="email"
+          required
+          placeholder="Your email address"
+          className="w-full px-4 py-3 rounded-md border border-gray-300 text-gray-600 focus:outline-none focus:ring-2 focus:ring-primary"
+        />
+        <button
+          type="submit"
+          className="px-6 py-3 bg-primary hover:bg-primary-dull transition-all text-white font-medium rounded-md w-full sm:w-auto"
+        >
+          Subscribe Now
+        </button>
+      </form>
+    </div>
+  );
+};
 
-export default NewsLetter
+export default NewsLetter;
