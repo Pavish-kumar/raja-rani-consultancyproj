@@ -9,7 +9,7 @@ const BestSeller = () => {
     <section className="mt-20 px-4 md:px-10 lg:px-20 font-inter bg-[#f9fafb] py-10 rounded-lg">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-800">
-          🍞 Best Sellers
+          Our Products
         </h2>
       </div>
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { assets, categories } from '../../assets/assets';
+import { assets } from '../../assets/assets';
 import { useAppContext } from '../../context/AppContext';
 import toast from 'react-hot-toast';
 
@@ -7,7 +7,6 @@ const AddProduct = () => {
   const [files, setFiles] = useState([]);
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
-  const [category, setCategory] = useState('');
   const [price, setPrice] = useState('');
   const [offerPrice, setOfferPrice] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -33,7 +32,6 @@ const AddProduct = () => {
       const productData = {
         name,
         description: description.split('\n'),
-        category,
         price,
         offerPrice,
       };
@@ -48,7 +46,6 @@ const AddProduct = () => {
         toast.success(data.message);
         setName('');
         setDescription('');
-        setCategory('');
         setPrice('');
         setOfferPrice('');
         setFiles([]);
@@ -63,123 +60,110 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="no-scrollbar flex-1 h-[95vh] overflow-y-scroll p-4 md:p-10">
-      <form onSubmit={onSubmitHandler} className="space-y-6 max-w-xl mx-auto bg-white p-6 rounded-xl shadow-md">
-        <h2 className="text-xl font-semibold text-center">Add New Product</h2>
+    <div className="min-h-screen bg-gray-50 p-4 flex items-center justify-center">
+      <form
+        onSubmit={onSubmitHandler}
+        className="w-full max-w-2xl bg-white shadow-xl rounded-3xl p-8 space-y-6 border border-gray-200"
+      >
+        <h2 className="text-2xl font-bold text-center text-gray-800">Create Product</h2>
 
-        {/* Product Images */}
+        {/* Image Upload */}
         <div>
-          <p className="text-sm font-medium mb-2">Product Images (Max 4)</p>
-          <div className="flex flex-wrap gap-4">
-            {Array(4)
-              .fill('')
-              .map((_, index) => (
-                <label key={index} className="relative w-24 h-24 border rounded overflow-hidden cursor-pointer group">
-                  <input
-                    type="file"
-                    accept="image/*"
-                    hidden
-                    onChange={(e) => handleImageChange(e, index)}
-                  />
-                  <img
-                    src={files[index] ? URL.createObjectURL(files[index]) : assets.upload_area}
-                    alt="upload"
-                    className="w-full h-full object-cover"
-                  />
-                  {files[index] && (
-                    <button
-                      type="button"
-                      onClick={() => removeImage(index)}
-                      className="absolute top-1 right-1 bg-white rounded-full p-0.5 text-xs font-bold text-red-500 hover:text-red-700"
-                    >
-                      ✕
-                    </button>
-                  )}
-                </label>
-              ))}
+          <p className="text-sm font-semibold text-gray-700 mb-2">Upload Images (Max 4)</p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {Array(4).fill('').map((_, index) => (
+              <label
+                key={index}
+                className="relative w-full aspect-square border-2 border-dashed rounded-lg flex items-center justify-center cursor-pointer hover:bg-gray-50 transition group"
+              >
+                <input
+                  type="file"
+                  accept="image/*"
+                  hidden
+                  onChange={(e) => handleImageChange(e, index)}
+                />
+                <img
+                  src={files[index] ? URL.createObjectURL(files[index]) : assets.upload_area}
+                  alt="Upload"
+                  className="w-full h-full object-cover rounded-lg"
+                />
+                {files[index] && (
+                  <button
+                    type="button"
+                    onClick={() => removeImage(index)}
+                    className="absolute top-1 right-1 bg-white rounded-full shadow p-1 text-red-600 hover:text-red-800"
+                  >
+                    &times;
+                  </button>
+                )}
+              </label>
+            ))}
           </div>
         </div>
 
         {/* Product Name */}
         <div>
-          <label htmlFor="name" className="block text-sm font-medium">Product Name</label>
+          <label htmlFor="name" className="block text-sm font-medium text-gray-700">Product Name</label>
           <input
             id="name"
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full mt-1 p-2 border rounded focus:outline-none focus:ring focus:border-primary"
+            className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
             placeholder="e.g. Chocolate Cake"
             required
           />
         </div>
 
-        {/* Product Description */}
+        {/* Description */}
         <div>
-          <label htmlFor="description" className="block text-sm font-medium">Description</label>
+          <label htmlFor="description" className="block text-sm font-medium text-gray-700">Description</label>
           <textarea
             id="description"
             rows={4}
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className="w-full mt-1 p-2 border rounded resize-none focus:outline-none focus:ring focus:border-primary"
+            className="w-full mt-1 p-3 border border-gray-300 rounded-lg resize-none focus:ring-2 focus:ring-blue-500 focus:outline-none"
             placeholder="Enter product details..."
           />
         </div>
 
-        {/* Category */}
-        <div>
-          <label htmlFor="category" className="block text-sm font-medium">Category</label>
-          <select
-            id="category"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            className="w-full mt-1 p-2 border rounded focus:outline-none focus:ring focus:border-primary"
-            required
-          >
-            <option value="">Select Category</option>
-            {categories.map((item, i) => (
-              <option key={i} value={item.path}>{item.path}</option>
-            ))}
-          </select>
-        </div>
-
-        {/* Price & Offer Price */}
+        {/* Price and Offer Price */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label htmlFor="price" className="block text-sm font-medium">Price</label>
+            <label htmlFor="price" className="block text-sm font-medium text-gray-700">Price</label>
             <input
               id="price"
               type="number"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
-              className="w-full mt-1 p-2 border rounded focus:outline-none focus:ring focus:border-primary"
+              className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
               placeholder="0"
               required
             />
           </div>
           <div>
-            <label htmlFor="offerPrice" className="block text-sm font-medium">Offer Price</label>
+            <label htmlFor="offerPrice" className="block text-sm font-medium text-gray-700">Offer Price</label>
             <input
               id="offerPrice"
               type="number"
               value={offerPrice}
               onChange={(e) => setOfferPrice(e.target.value)}
-              className="w-full mt-1 p-2 border rounded focus:outline-none focus:ring focus:border-primary"
+              className="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
               placeholder="0"
               required
             />
           </div>
         </div>
 
-        {/* Submit Button */}
+        {/* Submit */}
         <div className="text-center">
           <button
             type="submit"
             disabled={isSubmitting}
-            className="bg-primary text-white px-6 py-2 rounded hover:bg-primary-dark disabled:opacity-50"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold disabled:opacity-50 transition duration-200"
           >
-            {isSubmitting ? 'Adding...' : 'ADD'}
+            {isSubmitting ? 'Adding...' : 'Add Product'}
           </button>
         </div>
       </form>

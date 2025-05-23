@@ -46,7 +46,6 @@ const Navbar = () => {
         <div className="hidden sm:flex items-center gap-6 text-gray-700 text-[15px] font-medium">
           <NavLink to="/" className="hover:text-primary hover:underline">Home</NavLink>
           <NavLink to="/products" className="hover:text-primary hover:underline">All Product</NavLink>
-          <NavLink to="/" className="hover:text-primary hover:underline">Contact</NavLink>
 
           {/* Search */}
           <div className="hidden lg:flex items-center gap-2 border border-gray-300 px-3 rounded-full bg-white">

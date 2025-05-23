@@ -14,14 +14,14 @@ const Home = () => {
       </section>
 
       {/* Categories */}
-      <section>
+      {/* <section>
         <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">Shop by Categories</h2>
         <Categories />
-      </section>
+      </section> */}
 
       {/* Best Sellers */}
       <section>
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">Best Sellers</h2>
+        <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">Our Products</h2>
         <BestSeller />
       </section>
 
